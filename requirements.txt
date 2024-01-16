@@ -12,3 +12,4 @@ trl
 pypdf
 nest-asyncio
 langchain-community
+optimum
