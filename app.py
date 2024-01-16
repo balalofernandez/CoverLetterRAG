@@ -12,7 +12,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 from langchain.prompts import PromptTemplate
 from langchain.schema.runnable import RunnablePassthrough
-from langchain.llms import HuggingFacePipeline
+from langchain_community.llms import HuggingFacePipeline
 from langchain.chains import LLMChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader
@@ -69,16 +69,16 @@ def generate_prompt(pipeline, document_path, asked_question):
 model_name='mistralai/Mistral-7B-Instruct-v0.1'
 
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
-bnb_config = BitsAndBytesConfig(
+"""bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
     bnb_4bit_quant_type="nf4",
     bnb_4bit_compute_dtype=getattr(torch, "float16"),
     bnb_4bit_use_double_quant=False,
-)
+)"""
 
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
-    quantization_config=bnb_config,
+    #quantization_config=bnb_config,
 )
 text_generation_pipeline = pipeline(
     model=model,
