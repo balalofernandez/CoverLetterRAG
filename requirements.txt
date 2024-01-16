@@ -1,0 +1,14 @@
+torch
+langchain
+datasets 
+transformers
+playwright 
+html2text 
+sentence_transformers 
+faiss-cpu
+accelerate
+bitsandbytes
+trl
+pypdf
+nest-asyncio
+langchain-community
