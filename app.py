@@ -79,9 +79,10 @@ tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
     torch_dtype=torch.bfloat16, 
-    attn_implementation="flash_attention_2",
+    #attn_implementation="flash_attention_2",
     #quantization_config=bnb_config,
 )
+model.to_bettertransformer()
 text_generation_pipeline = pipeline(
     model=model,
     tokenizer=tokenizer,
