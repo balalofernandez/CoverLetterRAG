@@ -8,12 +8,8 @@ from transformers import (
 )
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.document_transformers import Html2TextTransformer
-from langchain.document_loaders import AsyncChromiumLoader
 
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
-
 from langchain.prompts import PromptTemplate
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.llms import HuggingFacePipeline
